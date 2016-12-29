@@ -1,4 +1,6 @@
 declare namespace Cypress {
+  type FileContents = string | any[] | Object;
+  type HistoryDirection = "back" | "forward";
   type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "OPTIONS" | "HEAD" | "TRACE" | "CONNECT";
   type RequestBody = string | Object;
   type ViewportOrientation = "portrait" | "landscape";
@@ -48,8 +50,8 @@ declare namespace Cypress {
     as(alias: string): Chainable;
     blur(options?: BlurOptions): Chainable;
     check(options?: CheckOptions): Chainable;
-    check(value: string): Chainable; // no options
-    check(values: string[]): Chainable; // no options
+    check(value: string): Chainable; // no options?
+    check(values: string[]): Chainable; // no options?
     children(options?: LoggableTimeoutable): Chainable;
     children(selector: string, options?: LoggableTimeoutable): Chainable;
     clear(options?: ClearOptions): Chainable;
@@ -76,15 +78,15 @@ declare namespace Cypress {
     filter(selector: string, options?: LoggableTimeoutable): Chainable;
     find(selector: string, options?: LoggableTimeoutable): Chainable;
     first(options?: LoggableTimeoutable): Chainable;
-    fixture(path: string, options?: Timeoutable): Chainable; // no log
-    fixture(path: string, encoding: string, options?: Timeoutable): Chainable; // no log
+    fixture(path: string, options?: Timeoutable): Chainable; // no log?
+    fixture(path: string, encoding: string, options?: Timeoutable): Chainable; // no log?
     focus(options?: Loggable): Chainable;
     focused(options?: Loggable): Chainable;
     get(selector: string, options?: LoggableTimeoutable): Chainable;
     get(alias: string, options?: LoggableTimeoutable): Chainable;
     getCookie(name: string, options?: LoggableTimeoutable): Chainable;
     getCookies(options?: LoggableTimeoutable): Chainable;
-    go(direction: "back" | "forward", options?: LoggableTimeoutable): Chainable;
+    go(direction: HistoryDirection, options?: LoggableTimeoutable): Chainable;
     go(num: number, options?: LoggableTimeoutable): Chainable;
     hash(options?: Loggable): Chainable;
     invoke(functionName: string): Chainable;
@@ -103,10 +105,10 @@ declare namespace Cypress {
     pause(options?: Loggable): Chainable;
     prev(options?: LoggableTimeoutable): Chainable;
     prev(selector: string, options?: LoggableTimeoutable): Chainable;
-    readFile(filePath: string, options?: Timeoutable): Chainable; // no log
-    readFile(filePath: string, encoding: string, options?: Timeoutable): Chainable; // no log
+    readFile(filePath: string, options?: Timeoutable): Chainable; // no log?
+    readFile(filePath: string, encoding: string, options?: Timeoutable): Chainable; // no log?
     reload(options?: LoggableTimeoutable): Chainable;
-    reload(forceReload: boolean): Chainable; // no options
+    reload(forceReload: boolean): Chainable; // no options?
     request(url: string): Chainable;
     request(url: string, body: RequestBody): Chainable;
     request(method: HttpMethod, url: string): Chainable;
@@ -139,7 +141,7 @@ declare namespace Cypress {
     title(options?: Loggable): Chainable;
     type(text: string, options?: TypeOptions): Chainable;
     uncheck(options?: CheckOptions): Chainable;
-    uncheck(values: string[]): Chainable; // no options, missing single value
+    uncheck(values: string[]): Chainable; // no options? missing single value variant
     url(options?: Loggable): Chainable;
     viewport(width: number, height: number, options?: Loggable): Chainable;
     viewport(preset: string, orientation: ViewportOrientation, options?: Loggable): Chainable;
@@ -151,8 +153,8 @@ declare namespace Cypress {
     within(fn: Function): Chainable;
     within(options: Loggable, fn: Function): Chainable; // inconsistent argument order
     wrap(object: Object, options?: Loggable): Chainable;
-    writeFile(filePath: string, contents: string | any[] | Object, options?: Timeoutable): Chainable;
-    writeFile(filePath: string, contents: string | any[] | Object, encoding: string, options?: Timeoutable): Chainable;
+    writeFile(filePath: string, contents: FileContents, options?: Timeoutable): Chainable;
+    writeFile(filePath: string, contents: FileContents, encoding: string, options?: Timeoutable): Chainable;
   }
 
   interface DebugOptions {
