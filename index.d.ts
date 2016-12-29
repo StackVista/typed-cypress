@@ -442,7 +442,7 @@ declare namespace Cypress {
     verbose?: boolean;
   }
 
-  interface CookieDefaults extends SetCookieOptions {
+  interface CookieDefaults {
     whitelist?: string | string[] | RegExp | Function;
   }
 
