@@ -1,0 +1,7 @@
+{
+  "name": "cypress",
+  "main": "index.d.ts",
+  "globalDependencies": {
+    "mocha": "registry:dt/mocha#2.2.5+20161221010438"
+  }
+}

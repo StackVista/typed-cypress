@@ -1,2 +1,3 @@
 # cypress-typings
-TypeScript typings for Cypress
+
+TypeScript type definitions for Cypress.
