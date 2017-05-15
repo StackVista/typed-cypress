@@ -35,7 +35,8 @@ declare namespace Cypress {
     moment: any;
     Blob: any;
     Promise: any;
-
+    Log: any;
+    
     /**
      * @see https://on.cypress.io/api/cookies
      */
